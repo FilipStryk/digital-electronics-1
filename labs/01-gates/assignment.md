@@ -32,10 +32,8 @@ end architecture dataflow;
 
 ### Distributive laws
 
-1. Screenshot with simulated time waveforms. Always display all inputs and outputs (display the inputs at the top of the image, the outputs below them) at the appropriate time scale!
+1. Simulated waveforms of functions representing two distributive laws.
 
-   ![your figure]()
+   ![Distributive laws](img/distributive_laws.png)
 
-2. Link to your public EDA Playground example:
-
-   [https://www.edaplayground.com/...](https://www.edaplayground.com/...)
+2. [Here](https://www.edaplayground.com/x/Bhjf) you can find an EDA playground example with distributive laws in VHDL.
