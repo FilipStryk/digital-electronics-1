@@ -2,15 +2,13 @@
 
 ### 2-bit comparator
 
-1. Karnaugh maps for other two functions:
+1. Karnaugh map for the function *B is greater than A*:
 
-   Greater than:
+   ![K-maps](img/k-map_greater.png)
 
-   ![K-maps](img/kmap_empty.png)
+   Karnaugh map for the function *B is less than A*:
 
-   Less than:
-
-   ![K-maps](img/kmap_empty.png)
+   ![K-maps](img/k-map_less.png)
 
 2. Equations of simplified SoP (Sum of the Products) form of the "greater than" function and simplified PoS (Product of the Sums) form of the "less than" function.
 
