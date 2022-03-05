@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 ------------------------------------------------------------
--- Entity declaration for 4-bit binary comparator
+-- Entity declaration for 3 bit 4 to 1 multiplexer
 ------------------------------------------------------------
 entity mux_3bit_4to1 is
     port(
@@ -16,7 +16,7 @@ entity mux_3bit_4to1 is
 end entity mux_3bit_4to1;
 
 ------------------------------------------------------------
--- Architecture body for 4-bit binary comparator
+-- Architecture body for 3 bit 4 to 1 multiplexer
 ------------------------------------------------------------
 architecture Behavioral of mux_3bit_4to1 is
 begin

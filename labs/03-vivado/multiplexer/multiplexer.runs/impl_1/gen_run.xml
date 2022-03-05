@@ -13,17 +13,17 @@
   <File Type="PLACE-DCP" Name="mux_3bit_4to1_placed.dcp"/>
   <File Type="OPT-DCP" Name="mux_3bit_4to1_opt.dcp"/>
   <File Type="ROUTE-BUS-SKEW" Name="mux_3bit_4to1_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="mux_3bit_4to1_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-TIMING-RPX" Name="mux_3bit_4to1_timing_summary_routed.rpx"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
   <File Type="BITSTR-LTX" Name="mux_3bit_4to1.ltx"/>
   <File Type="BITSTR-SYSDEF" Name="mux_3bit_4to1.sysdef"/>
   <File Type="BITSTR-MMI" Name="mux_3bit_4to1.mmi"/>
   <File Type="BITSTR-BMM" Name="mux_3bit_4to1_bd.bmm"/>
+  <File Type="ROUTE-CLK" Name="mux_3bit_4to1_clock_utilization_routed.rpt"/>
   <File Type="BITSTR-NKY" Name="mux_3bit_4to1.nky"/>
   <File Type="BITSTR-RBT" Name="mux_3bit_4to1.rbt"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="mux_3bit_4to1_bus_skew_routed.rpx"/>
   <File Type="REPORTS-TCL" Name="mux_3bit_4to1_reports.tcl"/>
+  <File Type="ROUTE-TIMING-RPX" Name="mux_3bit_4to1_timing_summary_routed.rpx"/>
   <File Type="RBD_FILE" Name="mux_3bit_4to1.rbd"/>
   <File Type="BITSTR-MSK" Name="mux_3bit_4to1.msk"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="mux_3bit_4to1_bus_skew_routed.pb"/>

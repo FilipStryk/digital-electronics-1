@@ -1,14 +1,3 @@
-------------------------------------------------------------
---
--- Testbench for 4-bit binary comparator.
--- EDA Playground
---
--- Copyright (c) 2020-Present Tomas Fryza
--- Dept. of Radio Electronics, Brno Univ. of Technology, Czechia
--- This work is licensed under the terms of the MIT license.
---
-------------------------------------------------------------
-
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -32,8 +21,6 @@ architecture testbench of tb_mux_3bit_4to1 is
     signal s_f           : std_logic_vector(3 - 1 downto 0);
 
 begin
-    -- Connecting testbench signals with comparator_4bit
-    -- entity (Unit Under Test)
     uut_mux_3bit_4to1 : entity work.mux_3bit_4to1
         port map(
             sel_i         => s_sel,
@@ -60,35 +47,34 @@ begin
         s_sel <= "00";
         wait for 100 ns;
         -- Expected output
-        assert ((s_f = "001"))
+        assert ((s_f = "100"))
         -- If false, then report an error
-        report "Input combination A = 0010 and B = 0010 FAILED" severity error;
+        report "Assert for SEL = 00 FAILED" severity error;
         
         
         s_sel <= "01";
         wait for 100 ns;
         -- Expected output
-        assert ((s_f = "010"))
+        assert ((s_f = "011"))
         -- If false, then report an error
-        report "Input combination A = 0010 and B = 0010 FAILED" severity error;
+        report "Assert for SEL = 01 FAILED" severity error;
         
         
         s_sel <= "10";
         wait for 100 ns;
         -- Expected output
-        assert ((s_f = "011"))
+        assert ((s_f = "010"))
         -- If false, then report an error
-        report "Input combination A = 0010 and B = 0010 FAILED" severity error;
+        report "Assert for SEL = 10 FAILED" severity error;
         
         
         s_sel <= "11";
         wait for 100 ns;
         -- Expected output
-        assert ((s_f = "100"))
+        assert ((s_f = "001"))
         -- If false, then report an error
-        report "Input combination A = 0010 and B = 0010 FAILED" severity error;
+        report "Assert for SEL = 11 FAILED" severity error;
         
-   
 
         -- Report a note at the end of stimulus process
         report "Stimulus process finished" severity note;
