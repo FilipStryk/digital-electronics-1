@@ -1,10 +1,34 @@
-# Lab 4: Filip Stryk
+library ieee;
+use ieee.std_logic_1164.all;
 
-## Seven-segment display decoder
+------------------------------------------------------------
+-- Entity declaration for testbench
+------------------------------------------------------------
+entity tb_hex_7seg is
+    -- Entity of testbench is always empty
+end entity tb_hex_7seg;
 
-1. Listing of VHDL stimulus process from testbench file (`tb_hex_7seg.vhd`) with asserts. 
+------------------------------------------------------------
+-- Architecture body for testbench
+------------------------------------------------------------
+architecture testbench of tb_hex_7seg is
 
-```vhdl
+    -- Local signals
+    signal s_hex  : std_logic_vector(4 - 1 downto 0);
+    signal s_seg  : std_logic_vector(7 - 1 downto 0);
+
+begin
+    -- Connecting testbench signals with decoder entity
+    -- (Unit Under Test)
+    uut_hex_7seg : entity work.hex_7seg
+        port map(
+            hex_i => s_hex,
+            seg_o => s_seg
+        );
+
+    --------------------------------------------------------
+    -- Data generation process
+    --------------------------------------------------------
     p_stimulus : process
     begin
         report "Stimulus process started" severity note;
@@ -78,26 +102,5 @@
         report "Stimulus process finished" severity note;
         wait;
     end process p_stimulus;
-```
 
-2. Simulated time waveforms.
-
-   ![Waveforms](img/waveforms.png)
-
-## LED(7:4) indicators
-
-1. Listing of LEDs(7:4) part of VHDL architecture from source file `top.vhd`.
-
-   ```vhdl
-    -- Turn LED(4) on if input value is equal to 0, ie "0000"
-    LED(4) <= '1' when (SW = "0000") else '0';
-
-    -- Turn LED(5) on if input value is greater than "1001", ie 10, 11, 12, ...
-    LED(5) <= '1' when (SW > "1001") else '0';
-
-    -- Turn LED(6) on if input value is odd, ie 1, 3, 5, ...
-    LED(6) <= '1' when ((to_integer(unsigned(SW)) mod 2) = 1) else '0';
-
-    -- Turn LED(7) on if input value is a power of two, ie 1, 2, 4, or 8
-    LED(7) <= '1' when (SW = x"1" or SW = x"2" or SW = x"4" or SW = x"8") else '0';
-   ```
+end architecture testbench;
