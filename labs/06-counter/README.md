@@ -2,7 +2,7 @@
 
 ### Bidirectional counter
 
-1. Listing of VHDL code of the completed process `p_cnt_up_down`. Always use syntax highlighting, meaningful comments, and follow VHDL guidelines:
+1. Process `p_cnt_up_down`.
 
 ```vhdl
     p_cnt_up_down : process(clk)
@@ -25,7 +25,7 @@
     end process p_cnt_up_down
 ```
 
-2. Screenshot with simulated time waveforms. Test reset as well. Always display all inputs and outputs (display the inputs at the top of the image, the outputs below them) at the appropriate time scale!
+2. Simulater waaveforms of 3bit counter.
 
    - Full waveforms
    ![Full waveforms](img/waveforms_full.png)
@@ -41,6 +41,6 @@
 
 ### Two counters
 
-1. Image of the top layer structure including both counters, ie a 4-bit bidirectional counter from *Part 4* and a 16-bit counter with a 10 ms time base from *Experiments on your own*. The image can be drawn on a computer or by hand. Always name all inputs, outputs, components and internal signals!
+1. Image of the top layer structure with two independent counters (4bit and 16bit).
 
-   ![your figure]()
+   ![Diagram](img/diagram.png)
