@@ -42,5 +42,7 @@
 ### Two counters
 
 1. Image of the top layer structure with two independent counters (4bit and 16bit).
+    ![Diagram](img/diagram.png)
 
-   ![Diagram](img/diagram.png)
+2. Simulated waveforms of the top layer.
+    ![Waveforms - TOP](img/waveforms_top.png)
