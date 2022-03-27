@@ -21,7 +21,7 @@ begin
     -- seg_o(5) segment B, etc.
     --       segment A
     --        | segment B
-    --        |  | segment C
+    --        |  | segment C 
     --        +-+|  |   ...   segment G
     --          ||+-+          |
     --          |||            |

@@ -9,8 +9,9 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity top is
     Port ( CLK100MHZ: in STD_LOGIC;
-           SW : in STD_LOGIC;
-           LED : out STD_LOGIC_VECTOR (3 downto 0);
+           SW_UP_4bit : in STD_LOGIC;
+           SW_UP_16bit : in STD_LOGIC;
+           LED : out STD_LOGIC_VECTOR (15 downto 0);
            CA : out STD_LOGIC;
            CB : out STD_LOGIC;
            CC : out STD_LOGIC;
@@ -19,7 +20,9 @@ entity top is
            CF : out STD_LOGIC;
            CG : out STD_LOGIC;
            AN : out STD_LOGIC_VECTOR (7 downto 0);
-           BTNC: in STD_LOGIC
+           BTN_RESET_4bit: in STD_LOGIC;
+           BTN_RESET_16bit: in STD_LOGIC;
+           CNT_OUT_4bit: out STD_LOGIC_VECTOR (3 downto 0) -- only for tests
            );
 end top;
 
@@ -29,44 +32,71 @@ end top;
 architecture Behavioral of top is
 
   -- Internal clock enable
-  signal s_en  : std_logic;
+  signal s_en_4bit  : std_logic;
+  signal s_en_16bit  : std_logic;
   -- Internal counter
-  signal s_cnt : std_logic_vector(4 - 1 downto 0);
+  signal s_cnt_4bit : std_logic_vector(4 - 1 downto 0);
+  signal s_cnt_16bit : std_logic_vector(16 - 1 downto 0);
 
 begin
 
   --------------------------------------------------------------------
   -- Instance (copy) of clock_enable entity
-  clk_en0 : entity work.clock_enable
+  clk_en_4bit : entity work.clock_enable
       generic map(
-          g_MAX => 25000000
+--          g_MAX => 25000000
+          g_MAX => 5 -- only for tests
       )
       port map(
           clk   => CLK100MHZ,
-          reset => BTNC,
-          ce_o  => s_en
+          reset => BTN_RESET_4bit,
+          ce_o  => s_en_4bit
+      );
+  
+  clk_en_16bit : entity work.clock_enable
+      generic map(
+--          g_MAX => 1000000
+          g_MAX => 3 -- only for tests
+      )
+      port map(
+          clk   => CLK100MHZ,
+          reset => BTN_RESET_16bit,
+          ce_o  => s_en_16bit
       );
 
   --------------------------------------------------------------------
   -- Instance (copy) of cnt_up_down entity
-  bin_cnt0 : entity work.cnt_up_down
+  bin_cnt_4bit : entity work.cnt_up_down
      generic map(
           g_CNT_WIDTH => 4
           
       )
       port map(
           clk => CLK100MHZ,
-          reset => BTNC,
-          en_i => s_en,
-          cnt_up_i => SW,
-          cnt_o => s_cnt
+          reset => BTN_RESET_4bit,
+          en_i => s_en_4bit,
+          cnt_up_i => SW_UP_4bit,
+          cnt_o => s_cnt_4bit
+      );
+  
+  bin_cnt_16bit : entity work.cnt_up_down
+     generic map(
+          g_CNT_WIDTH => 16
+          
+      )
+      port map(
+          clk => CLK100MHZ,
+          reset => BTN_RESET_16bit,
+          en_i => s_en_16bit,
+          cnt_up_i => SW_UP_16bit,
+          cnt_o => s_cnt_16bit
       );
 
   --------------------------------------------------------------------
   -- Instance (copy) of hex_7seg entity
   hex2seg : entity work.hex_7seg
       port map(
-          hex_i    => s_cnt,
+          hex_i    => s_cnt_4bit,
           seg_o(6) => CA,
           seg_o(5) => CB,
           seg_o(4) => CC,
@@ -80,6 +110,7 @@ begin
   AN <= b"1111_1110";
 
   -- Display counter values on LEDs
-  LED(3 downto 0) <= s_cnt;
+  LED(15 downto 0) <= s_cnt_16bit;
+  CNT_OUT_4bit(3 downto 0) <= s_cnt_4bit; -- only for tests
 
 end architecture Behavioral;
