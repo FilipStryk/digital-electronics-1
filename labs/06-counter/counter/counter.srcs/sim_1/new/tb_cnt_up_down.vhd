@@ -73,6 +73,8 @@ begin
         -- Reset activated
         s_reset <= '1'; wait for 73 ns;
         -- Reset deactivated
+        s_reset <= '0'; wait for 450 ns;
+        s_reset <= '1'; wait for 20 ns;
         s_reset <= '0';
         wait;
     end process p_reset_gen;
