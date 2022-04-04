@@ -3,7 +3,7 @@
 ## Waveforms for 4 digit display
 ![7-segment](img/wavedrom_7seg.png)
 
-```json
+```javascript
 {
   signal:
   [
