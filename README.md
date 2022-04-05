@@ -7,3 +7,5 @@
 4. [Seven-segment display decoder](labs/04-segment/)
 5. [Latches and Flip-flops](labs/05-ffs/)
 6. [Binary counter](labs/06-counter/)
+7. [Driver for multiple seven-segment displays](labs/07-display_driver/)
+8. [Traffic light controller](labs/08-traffic_lights/)
