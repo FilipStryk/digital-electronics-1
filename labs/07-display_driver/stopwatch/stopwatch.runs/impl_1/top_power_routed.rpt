@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-| Date             : Tue Mar 29 17:06:24 2022
+| Date             : Tue Apr  5 16:22:51 2022
 | Host             : discovery running 64-bit Ubuntu 21.10
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
@@ -53,12 +53,12 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      130 |       --- |             --- |
-|   LUT as Logic |    <0.001 |       39 |     32600 |            0.12 |
-|   Register     |    <0.001 |       59 |     65200 |            0.09 |
-|   CARRY4       |    <0.001 |        8 |      8150 |            0.10 |
-|   Others       |     0.000 |        9 |       --- |             --- |
-| Signals        |    <0.001 |      101 |       --- |             --- |
+| Slice Logic    |    <0.001 |      185 |       --- |             --- |
+|   LUT as Logic |    <0.001 |       52 |     32600 |            0.16 |
+|   CARRY4       |    <0.001 |       16 |      8150 |            0.20 |
+|   Register     |    <0.001 |       91 |     65200 |            0.14 |
+|   Others       |     0.000 |       11 |       --- |             --- |
+| Signals        |    <0.001 |      150 |       --- |             --- |
 | I/O            |     0.032 |       20 |       210 |            9.52 |
 | Static Power   |     0.062 |          |           |                 |
 | Total          |     0.095 |          |           |                 |
@@ -71,7 +71,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       0.950 |     0.007 |       0.001 |      0.006 |       NA    | Unspecified | NA         |
+| Vccint    |       0.950 |     0.008 |       0.002 |      0.006 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.013 |       0.001 |      0.011 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.010 |       0.009 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -137,11 +137,10 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+----------------+-----------+
-| Name           | Power (W) |
-+----------------+-----------+
-| top            |     0.033 |
-|   driver_seg_4 |     0.001 |
-+----------------+-----------+
++------+-----------+
+| Name | Power (W) |
++------+-----------+
+| top  |     0.033 |
++------+-----------+
 
 

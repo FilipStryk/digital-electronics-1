@@ -54,10 +54,10 @@ begin
     -- every 10 ms (100 Hz).
 
     -- JUST FOR SHORTER/FASTER SIMULATION
-    s_en <= '1';
+--    s_en <= '1';
     clk_en0 : entity work.clock_enable
         generic map(
-            g_MAX => 1000000       -- 10 ms / (1/100 MHz) = g_MAX
+            g_MAX => 1000000      -- 10 ms / (1/100 MHz) = g_MAX
         )
         port map(
             reset => reset,
@@ -92,14 +92,17 @@ begin
             elsif (s_en = '1' and s_start = '1' and pause_i = '0') then
                 s_cnt0 <= s_cnt0 + 1;       -- Increment every 10 ms
 
-                if (s_cnt0 mod 10 = 0) then
+                if ((s_cnt0 + 1) mod 10 = 0) then
                     s_cnt1 <= s_cnt1 + 1;
+                    s_cnt0 <= (others => '0');
                     
-                    if (s_cnt1 mod 10 = 0) then
+                    if ((s_cnt1 + 1) mod 10 = 0) then
                         s_cnt2 <= s_cnt2 + 1;
+                        s_cnt1 <= (others => '0');
                             
-                            if (s_cnt2 mod 10 = 0) then
+                            if ((s_cnt2 + 1) mod 10 = 0) then
                                 s_cnt3 <= s_cnt3 + 1;
+                                s_cnt2 <= (others => '0');
                             end if;
                     end if;
                 end if;
